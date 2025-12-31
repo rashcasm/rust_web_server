@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Rust Web Server</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Ubuntu, sans-serif;
+        background: #0b0b0b;
+        color: #eaeaea;
+        height: 100vh;
+      }
+
+      .layout {
+        display: flex;
+        height: 100vh;
+      }
+
+      .left {
+        width: 35%;
+        padding: 3rem 2rem;
+        border-right: 1px solid #222;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .right {
+        width: 65%;
+        padding: 3rem 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .subtitle {
+        font-size: 0.95rem;
+        color: #aaa;
+        margin-bottom: 1.5rem;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .tag {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
+        border: 1px solid #333;
+        color: #bbb;
+      }
+
+      .section {
+        margin-bottom: 1.6rem;
+      }
+
+      .section-title {
+        font-size: 0.9rem;
+        color: #888;
+        margin-bottom: 0.3rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      p {
+        font-size: 0.95rem;
+        line-height: 1.55;
+        color: #ddd;
+        margin: 0;
+      }
+
+      footer {
+        margin-top: 1.2rem;
+        font-size: 0.8rem;
+        color: #777;
+      }
+
+      @media (max-width: 900px) {
+        .layout {
+          flex-direction: column;
+        }
+
+        .left,
+        .right {
+          width: 100%;
+          border-right: none;
+          border-bottom: 1px solid #222;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="layout">
+      <!-- LEFT PANEL -->
+      <div class="left">
+        <h1>Rust Multi-Threaded Web Server</h1>
+        <div class="subtitle">
+          A learning-first HTTP server built from scratch.
+        </div>
+
+        <div class="tags">
+          <div class="tag">Rust</div>
+          <div class="tag">TCP</div>
+          <div class="tag">Threads</div>
+          <div class="tag">Thread Pool</div>
+          <div class="tag">No Async</div>
+          <div class="tag">No Frameworks</div>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="right">
+        <div class="section">
+          <div class="section-title">Purpose</div>
+          <p>
+            This server is not designed for production use. It exists to
+            understand how web servers work at a low level using Rust’s systems
+            programming model.
+          </p>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Design Choices</div>
+          <p>
+            HTTP parsing, TCP handling, and a thread pool are implemented
+            manually. Async/await is intentionally avoided to keep the focus on
+            concurrency fundamentals.
+          </p>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Key Learnings</div>
+          <p>
+            Ownership in concurrent code, safe multi-threading, request
+            dispatching via a worker pool, and how abstractions used by modern
+            frameworks are built underneath.
+          </p>
+        </div>
+
+        <footer>
+          If you’re reading this, a worker thread accepted your connection and
+          returned this response. 🦀
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
